@@ -1,0 +1,22 @@
+<html ng-app>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  </head>
+  <body>
+  	<input type="text" ng-model="name" class="">
+  	<h3>hello {{name}}!</h3>
+
+  	<div ng-init="nameslist=['rajan','konar','spoilerz','lol','bhawhahahaha']">
+  		<ul>
+  			<li ng-repeat="name in nameslist">{{name}}</li>
+  		</ul>
+  	</div>
+  	<input type="text" ng-model="InputName" class="">
+  	<div ng-init="customers=[{firstname:'rajan',country:'India'},{firstname:'konar',country:'UAE'},{firstname:'raja',country:'USA'},{firstname:'raj',country:'UK'},{firstname:'ravi',country:'India'},{firstname:'lol',country:'lol'},{firstname:'loll',country:'llll'},{firstname:'satish',country:'India'},{firstname:'ranjit',country:'India'},{firstname:'abhas',country:'Iran'},{firstname:'raju',country:'India'},{firstname:'qqqqq',country:'India'},{firstname:'amol',country:'South Africa'},{firstname:'sarfaraz',country:'India'},{firstname:'haha',country:'India'},{firstname:'aaaaa',country:'India'},{firstname:'erere',country:'India'},{firstname:'ddddd',country:'India'},{firstname:'vinay',country:'India'},{firstname:'bhawhaha',country:'India'},{firstname:'ashish',country:'Canada'},{firstname:'shanu',country:'Brazil'},{firstname:'muzzu',country:'Norway'},{firstname:'vijay',country:'India'},{firstname:'vinay',country:'India'}]">
+  		<ul>
+  			<li ng-repeat="cname in customers | filter:InputName | orderBy:'firstname'">{{cname.firstname | lowercase }} - {{cname.country | uppercase}}</li>
+  		</ul>
+  	</div>
+
+  </body>
+</html>

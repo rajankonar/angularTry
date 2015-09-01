@@ -1,0 +1,37 @@
+<html ng-app="myapp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="app.js"></script>
+      <style>
+          /*.overThirty{background-color: red; color: white;}
+          .underThirty{background-color: Blue;color: white;}*/
+          .hidden{display: none;}
+          img{border-radius: 50%;}
+      </style>
+  </head>
+  <body>
+<!--   	<input type="text" ng-model="name" class="">
+  	<h3>hello {{name}}!</h3>
+  	<div ng-init="nameslist=['rajan','konar','spoilerz','lol','bhawhahahaha']">
+  		<ul>
+  			<li ng-repeat="name in nameslist">{{name}}</li>
+  		</ul>
+  	</div> -->
+  	<div ng-controller="SimpleController as dirList">
+        <input type="text" ng-model="InputName" class="">
+  		<ul ng-class="{'hidden':!dirList.toggle}">
+  			<li ng-repeat="cname in dirList.customers | filter:InputName | orderBy:'firstname'">
+  			    <!--ng-class="cname.age >30 ? 'overThirty':'underThirty'"-->
+  			<img ng-src="{{cname.img}}" width="50px"/>{{cname.firstname | lowercase }} - {{cname.country | uppercase}} - {{cname.age | uppercase}}</li>
+  		</ul>
+         <button ng-if="!dirList.toggle" ng-click="dirList.toggle=true">Show List</button>
+         <button ng-if="dirList.toggle" ng-click="dirList.toggle=false">Hide List</button>
+          <form ng-submit="dirList.AddPersons()">
+            <input type="text" placeholder="Enter Name" ng-model="dirList.enterName">
+            <input type="text" placeholder="Enter Country" ng-model="dirList.enterCountry">
+            <input type="text" placeholder="Enter Age" ng-model="dirList.enterAge">
+            <button type="submit">ADD</button>
+          </form> 
+  	</div>
+  </body>
+</html>
